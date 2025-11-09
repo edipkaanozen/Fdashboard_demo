@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load plotly_dash %}
+
+{% block content %}
+  <h1>Analytics Dashboard</h1>
+  {% plotly_app name="SimpleExample" %}
+{% endblock %}
