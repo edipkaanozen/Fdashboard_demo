@@ -8,17 +8,22 @@ const Dashboard = () => {
   const [upcomingExpirations, setUpcomingExpirations] = useState([]);
 
   useEffect(() => {
-    fetch('/api/key-metrics/')
-      .then(response => response.json())
-      .then(data => setKeyMetrics(data[0]));
-
-    fetch('/api/trades/')
-      .then(response => response.json())
-      .then(data => setTrades(data));
-
-    fetch('/api/upcoming-expirations/')
-      .then(response => response.json())
-      .then(data => setUpcomingExpirations(data));
+    fetch('http://localhost:8000/api/dashboard-data/')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Data fetched successfully:", data);
+        setKeyMetrics(data.key_metrics[0]);
+        setTrades(data.trades);
+        setUpcomingExpirations(data.upcoming_expirations);
+      })
+      .catch(error => {
+        console.error("Fetch error:", error);
+      });
   }, []);
 
   return (
