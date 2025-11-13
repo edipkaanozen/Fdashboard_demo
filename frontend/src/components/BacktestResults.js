@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const BacktestResults = () => {
+  const [activeTab, setActiveTab] = useState('summary');
   return (
-    <div className="px-40 flex flex-1 justify-center py-5">
-      <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+    <div className="relative flex h-auto min-h-screen w-full flex-col bg-[#0f1c24] dark group/design-root overflow-x-hidden" style={{fontFamily: 'Inter, "Noto Sans", sans-serif'}}>
+      <div className="layout-container flex h-full grow flex-col">
+        <div className="gap-1 px-6 flex flex-1 justify-center py-5">
+          <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
         <div className="flex flex-wrap justify-between gap-3 p-4">
           <div className="flex min-w-72 flex-col gap-3">
             <p className="text-white tracking-light text-[32px] font-bold leading-tight">Backtest Results</p>
@@ -57,15 +60,15 @@ const BacktestResults = () => {
         </div>
         <div className="pb-3">
           <div className="flex border-b border-[#394b56] px-4 gap-8">
-            <a className="flex flex-col items-center justify-center border-b-[3px] border-b-white text-white pb-[13px] pt-4" href="#">
-              <p className="text-white text-sm font-bold leading-normal tracking-[0.015em]">Summary</p>
-            </a>
-            <a className="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#9aafbc] pb-[13px] pt-4" href="#">
-              <p className="text-[#9aafbc] text-sm font-bold leading-normal tracking-[0.015em]">Charts</p>
-            </a>
-            <a className="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#9aafbc] pb-[13px] pt-4" href="#">
-              <p className="text-[#9aafbc] text-sm font-bold leading-normal tracking-[0.015em]">Trades</p>
-            </a>
+            <button type="button" onClick={() => setActiveTab('summary')} className={`flex flex-col items-center justify-center border-b-[3px] ${activeTab === 'summary' ? 'border-b-white text-white' : 'border-b-transparent text-[#9aafbc]'} pb-[13px] pt-4`}>
+              <p className={`text-sm font-bold leading-normal tracking-[0.015em]`}>Summary</p>
+            </button>
+            <button type="button" onClick={() => setActiveTab('charts')} className={`flex flex-col items-center justify-center border-b-[3px] ${activeTab === 'charts' ? 'border-b-white text-white' : 'border-b-transparent text-[#9aafbc]'} pb-[13px] pt-4`}>
+              <p className={`text-sm font-bold leading-normal tracking-[0.015em]`}>Charts</p>
+            </button>
+            <button type="button" onClick={() => setActiveTab('trades')} className={`flex flex-col items-center justify-center border-b-[3px] ${activeTab === 'trades' ? 'border-b-white text-white' : 'border-b-transparent text-[#9aafbc]'} pb-[13px] pt-4`}>
+              <p className={`text-sm font-bold leading-normal tracking-[0.015em]`}>Trades</p>
+            </button>
           </div>
         </div>
         <h3 className="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Key Metrics</h3>
@@ -113,6 +116,8 @@ const BacktestResults = () => {
               <span className="truncate">Export Metrics (JSON)</span>
             </button>
           </div>
+        </div>
+      </div>
         </div>
       </div>
     </div>

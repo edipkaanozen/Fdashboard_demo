@@ -1,14 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
-import StrategyPage from './components/StrategyPage';
 import Header from './components/Header';
-import BacktestResults from './components/BacktestResults'; // This will be created in the next step
+import Simulation from './components/Simulation';
+import BacktestResults from './components/BacktestResults';
+import Strategies from './components/Strategies';
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <Header />
         <nav>
           <ul>
             <li>
@@ -22,6 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/simulation" element={<Simulation />} />
+          <Route path="/backtest" element={<BacktestResults />} />
+          <Route path="/strategies" element={<Strategies />} />
         </Routes>
       </div>
     </Router>

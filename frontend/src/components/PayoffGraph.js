@@ -25,13 +25,13 @@ const PayoffGraph = () => {
           <AreaChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#27333a" stopOpacity={0.8}/>
-                <stop offset="95%" stopColor="#27333a" stopOpacity={0}/>
+                <stop offset="5%" stopColor="#0066ff" stopOpacity={0.8}/>
+                <stop offset="95%" stopColor="#0066ff" stopOpacity={0}/>
               </linearGradient>
             </defs>
             <XAxis dataKey="name" tick={{fill: '#9aafbc'}} axisLine={false} tickLine={false} />
             <Tooltip />
-            <Area type="monotone" dataKey="uv" stroke="#9aafbc" fillOpacity={1} fill="url(#colorUv)" strokeWidth={3} />
+            <Area type="monotone" dataKey="uv" stroke="#0066ff" fillOpacity={1} fill="url(#colorUv)" strokeWidth={3} />
           </AreaChart>
         </ResponsiveContainer>
       </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#27333a] px-10 py-3">
+    <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#0066ff] px-10 py-3 bg-[#0066ff]">
       <div className="flex items-center gap-4 text-white">
         <div className="size-4">
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,10 +18,10 @@ const Header = () => {
       <div className="flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-9">
           <Link className="text-white text-sm font-medium leading-normal" to="/">Dashboard</Link>
-          <a className="text-white text-sm font-medium leading-normal" href="#">Strategies</a>
+          <Link className="text-white text-sm font-medium leading-normal" to="/strategies">Strategies</Link>
           <Link className="text-white text-sm font-medium leading-normal" to="/backtest">Backtests</Link>
-          <a className="text-white text-sm font-medium leading-normal" href="#">Live Trading</a>
-          <a className="text-white text-sm font-medium leading-normal" href="#">Community</a>
+          <button type="button" className="text-white text-sm font-medium leading-normal">Live Trading</button>
+          <button type="button" className="text-white text-sm font-medium leading-normal">Community</button>
         </div>
         <button
           className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#27333a] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
