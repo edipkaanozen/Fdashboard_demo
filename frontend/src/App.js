@@ -8,15 +8,20 @@ import BacktestResults from './components/BacktestResults'; // This will be crea
 function App() {
   return (
     <Router>
-function App() {
-  return (
-    <Router>
-      <div className="bg-[#101518] min-h-screen">
-        <Header />
+      <div className="App">
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Dashboard</Link>
+            </li>
+            <li>
+              <Link to="/simulation">Simulation</Link>
+            </li>
+          </ul>
+        </nav>
         <Routes>
-          <Route path="/" element={<StrategyPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/backtest" element={<BacktestResults />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/simulation" element={<Simulation />} />
         </Routes>
       </div>
     </Router>
