@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
-import Simulation from './components/Simulation.js';
+import StrategyPage from './components/StrategyPage';
+import Header from './components/Header';
+import BacktestResults from './components/BacktestResults'; // This will be created in the next step
 
 function App() {
   return (
@@ -27,3 +29,4 @@ function App() {
 }
 
 export default App;
+
